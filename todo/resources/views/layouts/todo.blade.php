@@ -7,8 +7,6 @@
 <body>
   <h1>Todo</h1>
 
-  @yield('menu')
-
   @yield('content')
 </body>
 
