@@ -1,6 +1,6 @@
 @extends('layouts.todo')
 
-@section('menu')
+@section('content')
 <table>
   <form method="post" action="#">
     @csrf
@@ -9,17 +9,17 @@
         <input type="radio" name="status" value="all">すべて<br>
       </th>
       <th>
-        <input type="radio" name="status" value="false">作業中<br>
+        <input type="radio" name="status" value="work">作業中<br>
       </th>
       <th>
-        <input type="radio" name="status" value="true">完了<br>
+        <input type="radio" name="status" value="complete">完了<br>
       </th>
     </tr>
   </form>
 </table>
-@endsection
 
-@section('content')
+
+
 <table>
   <tr>
     <th>ID</th>
@@ -47,9 +47,19 @@
 </table>
 
 <h1>新規タスク追加</h1>
-<form method="post" action="/create">
-  @csrf
-  <p>タスク:<input type="text" name="title"></p><br>
-  <input type="submit" value="追加する">
+<form method="post" action="/todo">
+  <table>
+    @csrf
+    @if($errors->has('title'))
+    <tr>
+      <th>ERROR</th>
+      <td>{{$errors->first('title')}}</td>
+    </tr>
+    @endif
+    <tr>
+      <th>タスク:<input type="text" name="title"></th>
+      <td><input type="submit" value="追加する"></td>
+    </tr>
+  </table>
 </form>
 @endsection
