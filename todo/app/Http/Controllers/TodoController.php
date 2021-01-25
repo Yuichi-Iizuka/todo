@@ -26,4 +26,9 @@ class TodoController extends Controller
     $todo->fill($form)->save();
     return redirect('todo');
     }
+
+    public function destroy(Todo $todo){
+        $todo->delete();
+        return redirect('todo');
+    }
 }

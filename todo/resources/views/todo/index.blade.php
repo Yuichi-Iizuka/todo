@@ -29,7 +29,7 @@
   @foreach($items as $item)
   <tr>
     <td>
-      {{$item->id}}
+      {{$loop->iteration}}
     </td>
     <td>
       {{$item->title}}
@@ -40,8 +40,11 @@
     <td><button>完了</button></td>
     @endif
     </td>
-    <td><button href="#">削除</button></td>
-
+    <td><form action="{{url('/todo',$item->id)}}" method="post">
+    {{csrf_field()}}
+    {{method_field('delete')}}
+    <button type="submit">削除</button></td>
+    </form>
   </tr>
   @endforeach
 </table>
