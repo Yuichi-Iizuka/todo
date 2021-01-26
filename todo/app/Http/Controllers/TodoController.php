@@ -29,6 +29,6 @@ class TodoController extends Controller
 
     public function destroy(Todo $todo){
         $todo->delete();
-        return redirect('todo');
+        return redirect('/todo');
     }
 }
