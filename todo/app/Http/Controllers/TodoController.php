@@ -24,11 +24,17 @@ class TodoController extends Controller
     $form = $request->all();
     unset($form['_token']);
     $todo->fill($form)->save();
-    return redirect('todo');
+    return redirect('/todo');
     }
 
     public function destroy(Todo $todo){
         $todo->delete();
+        return redirect('/todo');
+    }
+
+    public function update(Request $request,Todo $todo){
+        $todo->is_status = $request->is_status;
+        $todo->save();
         return redirect('/todo');
     }
 }

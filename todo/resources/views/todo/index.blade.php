@@ -18,8 +18,6 @@
   </form>
 </table>
 
-
-
 <table>
   <tr>
     <th>ID</th>
@@ -35,9 +33,20 @@
       {{$item->title}}
     </td>
     @if($item->is_status === 0)
-    <td><button>作業中</button></td>
-    @else($item->is_status === 0)
-    <td><button>完了</button></td>
+    <form action="{{url('/todo',$item->id)}}" method="post">
+    {{csrf_field()}}
+    {{method_field('put')}}
+    <input type="hidden" name="is_status" value="1">
+    <td><input type="submit" value="作業中"></td>
+    </form>
+    
+    @else($item->is_status === 1)
+    <form action="{{url('/todo',$item->id)}}" method="post">
+    {{csrf_field()}}
+    {{method_field('put')}}
+    <input type="hidden" name="is_status" value="0">
+    <td><input type="submit" value="完了"></td>
+    </form>
     @endif
     </td>
     <td><form action="{{url('/todo',$item->id)}}" method="post">
