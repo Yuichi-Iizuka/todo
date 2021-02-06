@@ -1,18 +1,21 @@
 @extends('layouts.todo')
 
 @section('content')
+
+
+
 <table>
-  <form method="post" action="#">
+  <form name="RadioForm">
     @csrf
     <tr>
       <th>
-        <input type="radio" name="status" value="all">すべて<br>
+        <input type="radio" name="status" id="all" value="all" onClick="Btn()" checked>すべて
       </th>
       <th>
-        <input type="radio" name="status" value="work">作業中<br>
+        <input type="radio" name="status" id="work" value="work" onClick="Btn()">作業中
       </th>
       <th>
-        <input type="radio" name="status" value="complete">完了<br>
+        <input type="radio" name="status" id="complete" value="complete" onClick="Btn()">完了
       </th>
     </tr>
   </form>
@@ -25,7 +28,7 @@
     <th>状態</th>
   </tr>
   @foreach($items as $item)
-  <tr>
+  <tr class="all">
     <td>
       {{$loop->iteration}}
     </td>
@@ -37,7 +40,7 @@
     {{csrf_field()}}
     {{method_field('put')}}
     <input type="hidden" name="is_status" value="1">
-    <td><input type="submit" value="作業中"></td>
+    <td><input type="submit" class="work" value="作業中"></td>
     </form>
     
     @else($item->is_status === 1)
@@ -45,7 +48,7 @@
     {{csrf_field()}}
     {{method_field('put')}}
     <input type="hidden" name="is_status" value="0">
-    <td><input type="submit" value="完了"></td>
+    <td><input type="submit" class="complete" value="完了"></td>
     </form>
     @endif
     </td>
