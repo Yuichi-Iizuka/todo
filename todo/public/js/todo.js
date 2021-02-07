@@ -3,35 +3,31 @@
   !*** ./resources/js/todo.js ***!
   \******************************/
 function Btn() {
-  check0 = document.RadioForm.all.checked;
-  check1 = document.RadioForm.work.checked;
-  check2 = document.RadioForm.complete.checked;
-  var form = document.getElementsByName('status');
-  console.log(form);
-  var all = document.querySelectorAll('.all');
-  console.log(all);
+  // check0 = document.RadioForm.all.checked;
+  // check1 = document.RadioForm.work.checked;
+  // check2 = document.RadioForm.complete.checked;
+  var status = document.getElementsByName('status');
+  var all = document.querySelectorAll('.tasks');
   var work = document.querySelectorAll('.work');
-  console.log(work);
   var complete = document.querySelectorAll('.complete');
-  console.log(complete);
 
-  if (check1 == true) {
+  if (status[1].checked) {
     work.forEach(function (item) {
-      item.closest('.all').style.display = "";
+      item.closest('.tasks').style.display = "";
     });
     complete.forEach(function (item) {
-      item.closest('.all').style.display = "none";
+      item.closest('.tasks').style.display = "none";
     });
-  } else if (check2 == true) {
+  } else if (status[2].checked) {
     work.forEach(function (item) {
-      item.closest('.all').style.display = "none";
+      item.closest('.tasks').style.display = "none";
     });
     complete.forEach(function (item) {
-      item.closest('.all').style.display = "";
+      item.closest('.tasks').style.display = "";
     });
-  } else if (check0 == true) {
+  } else if (status[0].checked) {
     all.forEach(function (item) {
-      item.closest('.all').style.display = "";
+      item.closest('.tasks').style.display = "";
     });
   }
 }

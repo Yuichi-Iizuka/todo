@@ -9,13 +9,13 @@
     @csrf
     <tr>
       <th>
-        <input type="radio" name="status" id="all" value="all" onClick="Btn()" checked>すべて
+        <input type="radio" name="status" id="all" value="0" onClick="Btn()" checked>すべて
       </th>
       <th>
-        <input type="radio" name="status" id="work" value="work" onClick="Btn()">作業中
+        <input type="radio" name="status" id="work" value="1" onClick="Btn()">作業中
       </th>
       <th>
-        <input type="radio" name="status" id="complete" value="complete" onClick="Btn()">完了
+        <input type="radio" name="status" id="complete" value="2" onClick="Btn()">完了
       </th>
     </tr>
   </form>
@@ -28,7 +28,7 @@
     <th>状態</th>
   </tr>
   @foreach($items as $item)
-  <tr class="all">
+  <tr class="tasks">
     <td>
       {{$loop->iteration}}
     </td>
