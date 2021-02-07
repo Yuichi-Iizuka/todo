@@ -3,13 +3,10 @@
   !*** ./resources/js/todo.js ***!
   \******************************/
 function Btn() {
-  // check0 = document.RadioForm.all.checked;
-  // check1 = document.RadioForm.work.checked;
-  // check2 = document.RadioForm.complete.checked;
-  var status = document.getElementsByName('status');
-  var all = document.querySelectorAll('.tasks');
-  var work = document.querySelectorAll('.work');
-  var complete = document.querySelectorAll('.complete');
+  const status = document.getElementsByName('status');
+  const all = document.querySelectorAll('.tasks');
+  const work = document.querySelectorAll('.work');
+  const complete = document.querySelectorAll('.complete');
 
   if (status[1].checked) {
     work.forEach(function (item) {

@@ -1,9 +1,5 @@
 function Btn() {
 
-  // check0 = document.RadioForm.all.checked;
-  // check1 = document.RadioForm.work.checked;
-  // check2 = document.RadioForm.complete.checked;
-
   const status  = document.getElementsByName('status');
   const all = document.querySelectorAll('.tasks');
   const work = document.querySelectorAll('.work');
